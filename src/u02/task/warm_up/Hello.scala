@@ -1,4 +1,4 @@
-package u02.task_warmup
+package u02.task.warm_up
 
 object Hello extends App:
 
