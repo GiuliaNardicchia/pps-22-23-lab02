@@ -11,6 +11,21 @@ object Function extends App:
       case x if x >= 0 => "positive"
       case x if x < 0 => "negative"
 
+    val negVal: (String => Boolean) => (String => Boolean) = predicate => !predicate(_)
+    def negMethod(predicate: String => Boolean): String => Boolean = !predicate(_)
+
+
   import Function.*
+
+  val empty: String => Boolean = _ == "" // predicate on strings
+  val notEmptyVal = negVal(empty) // which type of notEmpty?
+  val notEmptyMethod = negMethod(empty) // which type of notEmpty?
+  println(notEmptyVal("foo")) // true
+  println(notEmptyVal("")) // false
+  println(notEmptyVal("foo") && !notEmptyVal("")) // true.. a comprehensive test
+  println(notEmptyMethod("foo")) // true
+  println(notEmptyMethod("")) // false
+  println(notEmptyMethod("foo") && !notEmptyMethod("")) // true.. a comprehensive test
+
   println(positiveVal(2))
   println(positiveMethod(-2))
