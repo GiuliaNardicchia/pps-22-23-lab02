@@ -1,4 +1,4 @@
-package u02.task.function2b
+package u02.task.part2b
 
 object Currying extends App:
 

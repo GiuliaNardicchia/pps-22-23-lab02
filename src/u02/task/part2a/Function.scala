@@ -1,4 +1,4 @@
-package u02.task.function2a
+package u02.task.part2a
 
 object Function extends App:
 

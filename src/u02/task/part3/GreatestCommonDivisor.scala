@@ -1,4 +1,4 @@
-package u02.task.recursion3
+package u02.task.part3
 
 object GreatestCommonDivisor extends App:
 
