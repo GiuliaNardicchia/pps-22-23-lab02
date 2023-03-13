@@ -1,4 +1,4 @@
-package u02
+package u02.task.part5;
 
 object Optionals extends App:
 
@@ -20,25 +20,15 @@ object Optionals extends App:
       case Some(a) => f(a)
       case _ => None()
 
-    def filter[A](opt: Option[A])(f: A => Boolean): Option[A] = opt match
-      case Some(a) if !isEmpty(Some(a)) && f(a) => Some(a)
-      case _ => None()
-
   import Option.*
 
   val s1: Option[Int] = Some(1)
   val s2: Option[Int] = Some(2)
   val s3: Option[Int] = None()
 
-  /*
   println(s1) // Some(1)
-  println(orElse(s1, 0))
-  println(orElse(s3, 0)) // 1,0
+  println(orElse(s1, 0)) // 1
+  println(orElse(s3, 0)) // 0
   println(flatMap(s1)(i => Some(i + 1))) // Some(2)
   println(flatMap(s1)(i => flatMap(s2)(j => Some(i + j)))) // Some(3)
   println(flatMap(s1)(i => flatMap(s3)(j => Some(i + j)))) // None
-  */
-
-  println(filter(Some(5))(_ > 2)) // Some(5)
-  println(filter(Some(5))(_ > 8)) // None
-  println(filter(None[Int]())(_ > 2)) // None
