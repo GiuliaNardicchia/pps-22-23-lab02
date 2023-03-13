@@ -29,6 +29,10 @@ object Optionals extends App:
       case Some(a) if !isEmpty(Some(a)) && !f(a) => Some(false)
       case _ => None()
 
+    def fold[A](opt: Option[A])(default: A)(f: A => A): A = opt match
+      case Some(a) if !isEmpty(Some(a)) => f(a)
+      case _ => default
+
   import Option.*
 
   val s1: Option[Int] = Some(1)
@@ -50,6 +54,11 @@ object Optionals extends App:
   println(filter(None[Int]())(_ > 2)) // None
   */
 
+  /*
   println(map(Some(5))(_ > 2)) // Some(true)
   println(map(Some(5))(_ > 8)) // Some(false)
   println(map(None[Int]())(_ > 2)) // None
+  */
+
+  println(fold(Some(5))(1)(_ + 1)) // 6
+  println(fold(None[Int]())(1)(_ + 1)) // 1
