@@ -3,13 +3,14 @@ package u02.task.part2a
 object Function extends App:
 
   object Function:
-    val positiveVal: Int => String = _ match
-      case x if x >= 0 => "positive"
-      case x if x < 0 => "negative"
 
-    def positiveMethod(x: Int): String = x match
-      case x if x >= 0 => "positive"
-      case x if x < 0 => "negative"
+    val positiveVal: Int => String = x => x >= 0 match
+      case true => "positive"
+      case _ => "negative"
+
+    def positiveMethod(x: Int): String = x >= 0 match
+      case true => "positive"
+      case _ => "negative"
 
     val negVal: (String => Boolean) => (String => Boolean) = predicate => !predicate(_)
     def negMethod(predicate: String => Boolean): String => Boolean = !predicate(_)
