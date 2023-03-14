@@ -3,6 +3,7 @@ package u02.task
 object Tasks extends App:
 
     /******************************************** Task 3 (function) **********************************************/
+    // svolto da sola
     private object Functions:
 
       val positiveVal: Int => String = x => x >= 0 match
@@ -34,6 +35,7 @@ object Tasks extends App:
 
 
     /******************************************** Task 4 (currying) **********************************************/
+    // svolto da sola
     private object Currying:
 
       val p1: Int => Int => Int => Boolean = x => y => z => x <= y && y == z
@@ -60,6 +62,7 @@ object Tasks extends App:
 
 
     /************************************ Task 5 (functional composition) ******************************************/
+    // svolto da sola
     object FunctionalComposition:
 
       def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
@@ -81,6 +84,7 @@ object Tasks extends App:
 
 
     /************************************ Task 6 (recursion) ****************************************/
+    // svolto da sola
     private object GreatestCommonDivisor:
       @annotation.tailrec
       def gcd(a: Int, b: Int): Int = b match
@@ -97,6 +101,7 @@ object Tasks extends App:
 
 
     /********************************* Task 7 (sum types, product types, modules) *********************************/
+    // svolto da sola
     private object GeometricShape:
 
       enum Shape:
@@ -143,6 +148,7 @@ object Tasks extends App:
 
 
     /********************************* Task 8 (more functional combinators) *********************************/
+    // svolto da sola
     object Optionals:
 
       enum Option[A]:
