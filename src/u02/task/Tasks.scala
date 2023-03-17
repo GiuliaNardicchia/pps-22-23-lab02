@@ -115,15 +115,15 @@ object Tasks extends App:
           case Shape.Circle(radius) => 2 * Math.PI * radius
           case Shape.Square(side) => side * side
 
-        private def checkIsInside(width: Double, height: Double, point: (Double, Double)): Boolean =
-          point._1 > 0 && point._1 < width && point._2 > 0 && point._2 < height
+        private def checkIsInside(width: Double, height: Double, px: Double, py: Double): Boolean =
+          px > 0 && px < width && py > 0 && py < height
 
-        def contains(shape: Shape, point: (Double, Double)): Boolean = shape match
-          case Shape.Rectangle(width, height) => checkIsInside(width, height, point)
-          case Shape.Circle(radius) => Math.sqrt(Math.pow(point._1, 2) + Math.pow(point._2, 2)) <= radius
-          case Shape.Square(side) => checkIsInside(side, side, point)
+        def contains(shape: Shape, point: (Double, Double)): Boolean = (shape, point) match
+          case (Shape.Rectangle(width, height), (x, y)) => checkIsInside(width, height, x, y)
+          case (Shape.Circle(radius), (x, y)) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) <= radius
+          case (Shape.Square(side), (x, y)) => checkIsInside(side, side, x, y)
 
-    //Test Task 7
+  //Test Task 7
     import GeometricShape.*
     import ShapeOperation.*
     val rectangle = Shape.Rectangle(10.0, 8.0)
